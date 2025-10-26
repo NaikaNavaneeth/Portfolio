@@ -6,8 +6,8 @@ const experiences = [
   {
     title: "Software Engineer (Java Developer)",
     company: "Cotiviti",
-    duration: "Jan 2024 - Present",
-    description: "Developed scalable backend APIs and CI/CD pipelines using Java, Spring Boot, Jenkins, and Docker. Improved deployment speed by 40%.",
+    duration: "Sep 2025 - Present",
+    description: "Working as a backend Java developer intern.",
     tags: ["Java", "Spring", "Spring Boot", "Angular"]
   }
 ];
