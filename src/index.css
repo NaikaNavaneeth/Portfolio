@@ -114,3 +114,22 @@ All colors MUST be HSL.
     }
   }
 }
+
+
+@keyframes float {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(10px, -10px); }
+  50% { transform: translate(0, -20px); }
+  75% { transform: translate(-10px, -10px); }
+  100% { transform: translate(0, 0); }
+}
+
+.float-card {
+  animation: float 6s ease-in-out infinite;
+  transition: transform 0.3s ease, animation-play-state 0.3s ease;
+}
+
+.float-card.paused {
+  animation-play-state: paused;
+  transform: scale(1.05);
+}

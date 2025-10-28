@@ -1,40 +1,26 @@
+import { useEffect } from "react";
 import { Card } from "@/components/ui/card";
 import { Code2, Database, Cloud, Wrench, Lightbulb, CodeSquare } from "lucide-react";
 
 const skillCategories = [
-  {
-    icon: Code2,
-    title: "Languages",
-    skills: ["Java", "Python"]
-  },
-  {
-    icon:CodeSquare,
-    title: "Frameworks",
-    skills: ["Spring", "Springboot"]
-  },
-  {
-    icon: Database,
-    title: "Databases",
-    skills: ["MySQL", "MongoDB", "Supabase"]
-  },
-  {
-    icon: Cloud,
-    title: "DevOps & Cloud",
-    skills: ["Git", "Jenkins", "CI/CD"]
-  },
-  {
-    icon: Wrench,
-    title: "Tools",
-    skills: ["Postman", "XAMPP", "PowerBI"]
-  },
-  {
-    icon: Lightbulb,
-    title: "Core Concepts",
-    skills: ["DSA", "DBMS", "OOP"]
-  }
+  { icon: Code2, title: "Languages", skills: ["Java", "Python"] },
+  { icon: CodeSquare, title: "Frameworks", skills: ["Spring", "Springboot"] },
+  { icon: Database, title: "Databases", skills: ["MySQL", "MongoDB", "Supabase"] },
+  { icon: Cloud, title: "DevOps & Cloud", skills: ["Git", "Jenkins", "CI/CD"] },
+  { icon: Wrench, title: "Tools", skills: ["Postman", "XAMPP", "PowerBI"] },
+  { icon: Lightbulb, title: "Core Concepts", skills: ["DSA", "DBMS", "OOP"] },
 ];
 
 const Skills = () => {
+  useEffect(() => {
+    const cards = document.querySelectorAll(".float-card");
+    cards.forEach((card) => {
+      card.addEventListener("click", () => {
+        card.classList.toggle("paused");
+      });
+    });
+  }, []);
+
   return (
     <section id="skills" className="py-24 px-4 bg-section">
       <div className="container mx-auto max-w-6xl">
@@ -49,9 +35,9 @@ const Skills = () => {
           {skillCategories.map((category, index) => {
             const Icon = category.icon;
             return (
-              <Card 
-                key={index} 
-                className="p-6 card-gradient border-border/50 hover:border-primary/50 transition-all hover-lift group"
+              <Card
+                key={index}
+                className="float-card p-6 card-gradient border-border/50 hover:border-primary/50 transition-all hover-lift group"
               >
                 <div className="flex items-center gap-3 mb-4">
                   <div className="p-3 bg-gradient-primary rounded-lg group-hover:scale-110 transition-transform">
@@ -61,7 +47,7 @@ const Skills = () => {
                 </div>
                 <div className="space-y-2">
                   {category.skills.map((skill, skillIndex) => (
-                    <div 
+                    <div
                       key={skillIndex}
                       className="text-muted-foreground hover:text-primary transition-colors cursor-default"
                     >
